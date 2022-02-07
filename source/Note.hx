@@ -98,6 +98,24 @@ class Note extends FlxSprite
 					hitCausesMiss = true;
 				case 'No Animation':
 					noAnimation = true;
+				case 'Makarakarn Note':
+					reloadNote('MAKARAKARN');
+					noteSplashTexture = 'MakarakarnSplash';
+					colorSwap.hue = 0;
+					colorSwap.saturation = 0;
+					colorSwap.brightness = 0;
+					missHealth = 1;
+					switch (noteData % 4)
+				{
+					case 0:
+						offsetX -= 20;
+					case 1:
+						offsetX -= 25;
+					case 2:
+						offsetX -= 15;
+					case 3:
+						offsetX += 5;
+				}
 			}
 			noteType = value;
 		}
@@ -193,7 +211,7 @@ class Note extends FlxSprite
 						prevNote.animation.play('redhold');
 				}
 
-				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.05 * PlayState.songSpeed;
+				prevNote.scale.y *= Conductor.stepCrochet / 100 * 1.05 * PlayState.SONG.speed;
 				if(PlayState.isPixelStage) {
 					prevNote.scale.y *= 1.19;
 				}
@@ -287,8 +305,7 @@ class Note extends FlxSprite
 			animation.addByPrefix('bluehold', 'blue hold piece');
 		}
 
-		
-		setGraphicSize(Std.int(width * ClientPrefs.noteSize));
+		setGraphicSize(Std.int(width * 0.7));
 		updateHitbox();
 	}
 
