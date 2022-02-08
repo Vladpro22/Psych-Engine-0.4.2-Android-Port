@@ -17,5 +17,9 @@ gf-pixel
 senpai
 senpai-angry
 spirit
+tankman
 bf-pixel-opponent
 pico-player
+bf-metaverse
+gf-metaverse
+pico-metaverse
